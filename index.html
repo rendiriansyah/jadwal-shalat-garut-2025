@@ -1,65 +1,48 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Jadwal Shalat Garut 2025</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #000000;
-      --table-header: #f2f2f2;
-      --border-color: #ccc;
-    }
-
-    body.dark {
-      --bg-color: #121212;
-      --text-color: #f1f1f1;
-      --table-header: #1e1e1e;
-      --border-color: #444;
-    }
-
     body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
       font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
+      padding: 20px;
+      background: #fff;
+      color: #000;
     }
-
-    select, button {
+    h2 {
+      text-align: center;
+    }
+    select {
       padding: 8px;
       font-size: 16px;
-      margin: 10px 10px 20px 0;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 30px;
       display: none;
     }
-
-    th, td {
-      border: 1px solid var(--border-color);
-      padding: 8px;
-      text-align: center;
-    }
-
-    th {
-      background-color: var(--table-header);
-    }
-
     table.active {
       display: table;
     }
-
-    @media (max-width: 600px) {
-      table, thead, tbody, th, td, tr {
-        font-size: 14px;
-      }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr.today {
+      background-color: #ffeb3b; /* warna kuning untuk tanggal hari ini */
+      font-weight: bold;
     }
   </style>
 </head>
@@ -67,450 +50,114 @@
   <h2>Jadwal Shalat Garut Tahun 2025</h2>
   <label for="bulan">Pilih Bulan:</label>
   <select id="bulan" onchange="tampilkanBulan()">
-<option value="bulan0">Januari</option>
-<option value="bulan1">Februari</option>
-<option value="bulan2">Maret</option>
-<option value="bulan3">April</option>
-<option value="bulan4">Mei</option>
-<option value="bulan5">Juni</option>
-<option value="bulan6">Juli</option>
-<option value="bulan7">Agustus</option>
-<option value="bulan8">September</option>
-<option value="bulan9">Oktober</option>
-<option value="bulan10">November</option>
-<option value="bulan11">Desember</option>
+    <option value="0">Januari</option>
+    <option value="1">Februari</option>
+    <option value="2">Maret</option>
+    <option value="3">April</option>
+    <option value="4">Mei</option>
+    <option value="5">Juni</option>
+    <option value="6">Juli</option>
+    <option value="7">Agustus</option>
+    <option value="8">September</option>
+    <option value="9">Oktober</option>
+    <option value="10">November</option>
+    <option value="11">Desember</option>
+  </select>
 
-</select>
-<button onclick="toggleMode()">🌙/☀️ Mode</button>
-<button onclick="window.print()">🖨️ Cetak</button>
-<table id="bulan0" class="active">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>02 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>03 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>04 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>05 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>06 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>07 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>08 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>09 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>10 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>11 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>12 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>13 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>14 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>15 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>16 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>17 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>18 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>19 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>20 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>21 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>22 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>23 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>24 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>25 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>26 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>27 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>28 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>29 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>30 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>31 Januari 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:20</td></tr>
-</tbody></table>
-<table id="bulan1" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>02 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>03 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>04 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>05 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>06 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>07 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>08 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>09 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>10 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>11 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>12 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>13 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>14 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>15 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>16 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>17 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>18 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>19 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>20 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>21 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>22 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>23 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>24 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>25 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>26 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>27 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-<tr><td>28 Februari 2025</td><td>04:28</td><td>04:38</td><td>12:05</td><td>15:26</td><td>18:10</td><td>19:20</td></tr>
-</tbody></table>
-<table id="bulan2" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>02 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>03 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>04 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>05 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>06 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>07 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>08 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>09 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>10 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>11 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>12 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>13 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>14 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>15 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>16 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>17 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>18 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>19 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>20 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>21 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>22 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>23 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>24 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>25 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>26 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>27 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>28 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>29 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>30 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-<tr><td>31 Maret 2025</td><td>04:20</td><td>04:30</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:10</td></tr>
-</tbody></table>
-<table id="bulan3" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>02 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>03 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>04 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>05 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>06 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>07 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>08 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>09 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>10 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>11 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>12 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>13 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>14 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>15 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>16 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>17 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>18 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>19 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>20 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>21 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>22 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>23 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>24 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>25 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>26 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>27 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>28 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>29 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>30 April 2025</td><td>04:15</td><td>04:25</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-</tbody></table>
-<table id="bulan4" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>02 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>03 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>04 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>05 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>06 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>07 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>08 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>09 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>10 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>11 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>12 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>13 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>14 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>15 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>16 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>17 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>18 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>19 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>20 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>21 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>22 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>23 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>24 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>25 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>26 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>27 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>28 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>29 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>30 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-<tr><td>31 Mei 2025</td><td>04:10</td><td>04:20</td><td>11:55</td><td>15:10</td><td>17:50</td><td>18:55</td></tr>
-</tbody></table>
-<table id="bulan5" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>02 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>03 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>04 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>05 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>06 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>07 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>08 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>09 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>10 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>11 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>12 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>13 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>14 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>15 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>16 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>17 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>18 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>19 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>20 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>21 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>22 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>23 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>24 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>25 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>26 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>27 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>28 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>29 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>30 Juni 2025</td><td>04:15</td><td>04:25</td><td>12:00</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-</tbody></table>
-<table id="bulan6" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>02 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>03 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>04 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>05 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>06 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>07 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>08 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>09 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>10 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>11 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>12 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>13 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>14 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>15 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>16 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>17 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>18 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>19 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>20 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>21 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>22 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>23 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>24 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>25 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>26 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>27 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>28 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>29 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>30 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>31 Juli 2025</td><td>04:20</td><td>04:30</td><td>12:05</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-</tbody></table>
-<table id="bulan7" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>02 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>03 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>04 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>05 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>06 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>07 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>08 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>09 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>10 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>11 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>12 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>13 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>14 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>15 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>16 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>17 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>18 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>19 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>20 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>21 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>22 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>23 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>24 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>25 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>26 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>27 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>28 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>29 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>30 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-<tr><td>31 Agustus 2025</td><td>04:25</td><td>04:35</td><td>12:05</td><td>15:25</td><td>18:05</td><td>19:10</td></tr>
-</tbody></table>
-<table id="bulan8" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>02 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>03 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>04 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>05 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>06 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>07 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>08 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>09 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>10 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>11 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>12 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>13 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>14 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>15 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>16 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>17 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>18 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>19 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>20 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>21 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>22 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>23 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>24 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>25 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>26 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>27 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>28 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>29 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>30 September 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-</tbody></table>
-<table id="bulan9" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>02 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>03 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>04 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>05 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>06 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>07 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>08 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>09 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>10 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>11 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>12 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>13 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>14 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>15 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>16 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>17 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>18 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>19 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>20 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>21 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>22 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>23 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>24 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>25 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>26 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>27 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>28 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>29 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>30 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-<tr><td>31 Oktober 2025</td><td>04:20</td><td>04:30</td><td>11:55</td><td>15:15</td><td>17:55</td><td>19:00</td></tr>
-</tbody></table>
-<table id="bulan10" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>02 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>03 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>04 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>05 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>06 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>07 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>08 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>09 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>10 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>11 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>12 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>13 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>14 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>15 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>16 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>17 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>18 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>19 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>20 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>21 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>22 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>23 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>24 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>25 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>26 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>27 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>28 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>29 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-<tr><td>30 November 2025</td><td>04:25</td><td>04:35</td><td>12:00</td><td>15:20</td><td>18:00</td><td>19:05</td></tr>
-</tbody></table>
-<table id="bulan11" class="">
-<thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead>
-<tbody>
-<tr><td>01 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>02 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>03 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>04 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>05 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>06 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>07 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>08 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>09 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>10 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>11 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>12 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>13 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>14 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>15 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>16 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>17 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>18 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>19 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>20 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>21 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>22 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>23 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>24 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>25 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>26 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>27 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>28 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>29 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>30 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-<tr><td>31 Desember 2025</td><td>04:30</td><td>04:40</td><td>12:05</td><td>15:25</td><td>18:10</td><td>19:15</td></tr>
-</tbody></table>
+  <!-- Tabel jadwal untuk tiap bulan -->
+  <table id="bulan0"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan1"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan2"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan3"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan4"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan5"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan6"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan7"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan8"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan9"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan10"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
+  <table id="bulan11"><thead><tr><th>Tanggal</th><th>Imsak</th><th>Subuh</th><th>Dzuhur</th><th>Ashar</th><th>Maghrib</th><th>Isya</th></tr></thead><tbody></tbody></table>
 
-<script>
-function tampilkanBulan() {
-  var select = document.getElementById("bulan");
-  var value = select.value;
-  var tables = document.querySelectorAll("table");
-  tables.forEach(function(t) {
-    t.classList.remove("active");
-  });
-  document.getElementById(value).classList.add("active");
-}
+  <script>
+    // Jadwal shalat (rata-rata) tiap bulan Garut 2025
+    const jadwalBulanan = {
+      Januari:    { Imsak: "04:30", Subuh: "04:40", Dzuhur: "12:05", Ashar: "15:25", Maghrib: "18:10", Isya: "19:20" },
+      Februari:   { Imsak: "04:28", Subuh: "04:38", Dzuhur: "12:05", Ashar: "15:26", Maghrib: "18:10", Isya: "19:20" },
+      Maret:      { Imsak: "04:20", Subuh: "04:30", Dzuhur: "12:00", Ashar: "15:20", Maghrib: "18:00", Isya: "19:10" },
+      April:      { Imsak: "04:15", Subuh: "04:25", Dzuhur: "11:55", Ashar: "15:15", Maghrib: "17:55", Isya: "19:00" },
+      Mei:        { Imsak: "04:10", Subuh: "04:20", Dzuhur: "11:55", Ashar: "15:10", Maghrib: "17:50", Isya: "18:55" },
+      Juni:       { Imsak: "04:15", Subuh: "04:25", Dzuhur: "12:00", Ashar: "15:15", Maghrib: "17:55", Isya: "19:00" },
+      Juli:       { Imsak: "04:20", Subuh: "04:30", Dzuhur: "12:05", Ashar: "15:20", Maghrib: "18:00", Isya: "19:05" },
+      Agustus:    { Imsak: "04:25", Subuh: "04:35", Dzuhur: "12:05", Ashar: "15:25", Maghrib: "18:05", Isya: "19:10" },
+      September:  { Imsak: "04:25", Subuh: "04:35", Dzuhur: "12:00", Ashar: "15:20", Maghrib: "18:00", Isya: "19:05" },
+      Oktober:    { Imsak: "04:20", Subuh: "04:30", Dzuhur: "11:55", Ashar: "15:15", Maghrib: "17:55", Isya: "19:00" },
+      November:   { Imsak: "04:25", Subuh: "04:35", Dzuhur: "12:00", Ashar: "15:20", Maghrib: "18:00", Isya: "19:05" },
+      Desember:   { Imsak: "04:30", Subuh: "04:40", Dzuhur: "12:05", Ashar: "15:25", Maghrib: "18:10", Isya: "19:15" },
+    };
 
-function toggleMode() {
-  document.body.classList.toggle("dark");
-}
-</script>
+    const namaBulan = Object.keys(jadwalBulanan);
+
+    function getDaysInMonth(year, month) {
+      return new Date(year, month + 1, 0).getDate();
+    }
+
+    function buatTabelBulan(bulanIndex) {
+      const table = document.getElementById(`bulan${bulanIndex}`);
+      const tbody = table.querySelector("tbody");
+      tbody.innerHTML = "";
+
+      const tahun = 2025;
+      const nama = namaBulan[bulanIndex];
+      const jadwal = jadwalBulanan[nama];
+      const hariIni = new Date();
+      const days = getDaysInMonth(tahun, bulanIndex);
+
+      for (let day = 1; day <= days; day++) {
+        const tr = document.createElement("tr");
+        if (
+          hariIni.getFullYear() === tahun &&
+          hariIni.getMonth() === bulanIndex &&
+          hariIni.getDate() === day
+        ) {
+          tr.classList.add("today");
+        }
+
+        tr.innerHTML = `
+          <td>${day}</td>
+          <td>${jadwal.Imsak}</td>
+          <td>${jadwal.Subuh}</td>
+          <td>${jadwal.Dzuhur}</td>
+          <td>${jadwal.Ashar}</td>
+          <td>${jadwal.Maghrib}</td>
+          <td>${jadwal.Isya}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function tampilkanBulan() {
+      const select = document.getElementById("bulan");
+      const bulanTerpilih = parseInt(select.value);
+
+      // sembunyikan semua tabel
+      for (let i = 0; i < 12; i++) {
+        const table = document.getElementById(`bulan${i}`);
+        table.classList.remove("active");
+      }
+
+      // tampilkan tabel bulan yang dipilih
+      const tabel = document.getElementById(`bulan${bulanTerpilih}`);
+      buatTabelBulan(bulanTerpilih);
+      tabel.classList.add("active");
+    }
+
+    // Set default bulan ke bulan sekarang saat load
+    window.onload = function () {
+      const now = new Date();
+      const bulanSekarang = now.getMonth();
+      document.getElementById("bulan").value = bulanSekarang;
+      tampilkanBulan();
+    };
+  </script>
 </body>
 </html>
